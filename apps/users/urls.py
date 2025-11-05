@@ -1,0 +1,36 @@
+from django.urls import path
+from .views import (
+    RegisterView,
+    LoginView,
+    ProfileView,
+    ChangePasswordView,
+    FeedbackListCreateView,
+    FeedbackReplyView,
+    ForgotPasswordView,
+    VerifyOTPView,
+    ResetPasswordView,
+    AdminUserDetailsView,
+    AdminAllStoreOwnersView,
+    AdminAllResellersView,
+    ApproveStoreOwnerView,
+    RejectStoreOwnerView,
+    DeleteAccountView,
+)
+
+urlpatterns = [
+    path('register', RegisterView.as_view(), name='register'),
+    path('login', LoginView.as_view(), name='login'),
+    path('profile', ProfileView.as_view(), name='profile'),
+    path('change-password', ChangePasswordView.as_view(), name='change-password'),
+    path('forgot-password', ForgotPasswordView.as_view(), name='forgot-password'),
+    path('verify-otp', VerifyOTPView.as_view(), name='verify-otp'),
+    path('reset-password', ResetPasswordView.as_view(), name='reset-password'),
+    path('feedback', FeedbackListCreateView.as_view(), name='feedback'),
+    path('feedback/reply', FeedbackReplyView.as_view(), name='feedback-reply'),
+    path('details/<uuid:user_id>', AdminUserDetailsView.as_view(), name='user-details'),
+    path('all-details-store-owner', AdminAllStoreOwnersView.as_view(), name='all-details-store-owner'),
+    path('all-details-resellar', AdminAllResellersView.as_view(), name='all-details-resellar'),
+    path('approve-store-owner', ApproveStoreOwnerView.as_view(), name='approve-store-owner'),
+    path('reject-store-owner', RejectStoreOwnerView.as_view(), name='reject-store-owner'),
+    path('delete-account', DeleteAccountView.as_view(), name='delete-account'),
+]
